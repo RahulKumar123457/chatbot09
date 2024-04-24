@@ -32,14 +32,3 @@ def predict_intent(text):
 def home():
     return render_template('index.html')
 
-# Define route for processing user input
-@app.route('/process', methods=['POST'])
-def process():
-    user_input = request.form['user_input']
-    intent = predict_intent(user_input)
-    # Here you can handle different intents and provide appropriate responses
-    # For simplicity, I'm just returning the predicted intent in JSON format
-    return jsonify({'intent': intent})
-
-if __name__ == '__main__':
-    app.run(debug=True)
